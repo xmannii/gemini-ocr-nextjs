@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+# Open Source OCR App
+
+This is an open-source OCR (Optical Character Recognition) application built with Next.js,Vercel AI sdk, Tailwind CSS v4, and shadcn/ui. It allows users to upload an image and extract text from it using Google's Gemini AI.
+
+
+## Features
+
+-   **Image Upload**: Simple interface to upload an image file (JPG, PNG).
+-   **Text Extraction**: Uses Google's `gemini-2.5-flash` model to extract text from the image.
+-   **Responsive Design**: Built with Tailwind CSS and shadcn/ui for a modern and responsive user experience.
+-   **Dark Mode**: Includes a dark mode theme.
+-   **API Route**: Provides an API endpoint for OCR processing.
+
+## Tech Stack
+
+-   [Next.js](https://nextjs.org/) – React framework for building server-rendered applications.
+-   [Tailwind CSS v4](https://tailwindcss.com/) – A utility-first CSS framework for rapid UI development.
+-   [shadcn/ui](https://ui.shadcn.com/) – A collection of re-usable components for React.
+-   [Google AI SDK](https://ai.google.dev/) – Powers the OCR functionality with the Gemini model.
+-   [Vercel AI SDK](https://sdk.vercel.ai/docs) – Used for seamless AI integration and API handling.
 
 ## Getting Started
 
-First, run the development server:
+Follow these instructions to get a local copy up and running.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   Node.js (v18.x or later)
+-   pnpm (or npm/yarn)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/YOUR_USERNAME/ocr-app-opensource.git
+    cd ocr-app-opensource
+    ```
 
-## Learn More
+2.  **Install dependencies:**
+    ```bash
+    pnpm install
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+3.  **Set up environment variables:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    Create a `.env.local` file in the root of your project and add your Google AI API key:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    ```env
+    GOOGLE_GENERATIVE_AI_API_KEY="YOUR_GOOGLE_AI_API_KEY"
+    ```
+    You can obtain a free API key from [Google AI Studio](https://aistudio.google.com/app/apikey).
 
-## Deploy on Vercel
+4.  **Run the development server:**
+    ```bash
+    pnpm dev
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The application should now be running at [http://localhost:3000](http://localhost:3000).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Usage
+
+1.  Open the application in your browser.
+2.  Click the "Upload Image" button and select a JPG or PNG file.
+3.  The extracted text will be displayed in the text area on the right.
+
+## How It Works
+
+The application sends the uploaded image to a Next.js API route (`/api/ocr`). This backend route processes the image and sends it to the Google Gemini API, which performs the OCR and returns the extracted text. The text is then streamed back to the frontend and displayed to the user.
+
