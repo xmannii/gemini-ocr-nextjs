@@ -33,8 +33,8 @@ Follow these instructions to get a local copy up and running.
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/YOUR_USERNAME/ocr-app-opensource.git
-    cd ocr-app-opensource
+    git clone https://github.com/xmannii/gemini-ocr-nextjs.git
+    cd gemini-ocr-nextjs
     ```
 
 2.  **Install dependencies:**
